@@ -35,7 +35,14 @@ app.use((req, res, next) => {
 
 // socket io stuff
 io.on('connection', socket => {
-    console.log('a user connected');
+    var id = 'user' + Date.now();
+    console.log('user', id, 'connected');
+    socket.on('change name', name => {
+      io.emit('name change', {playerId: id, name: name});
+    });
+    socket.on('disconnect', () => {
+      console.log('user', id, 'disconnected');
+    });
 });
 
 /// error handlers
