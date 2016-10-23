@@ -1,10 +1,9 @@
 extends layout
 
 block content
-  h2 what is your name?
-  input(type='text').name
-  button.submit submit
-  h2 players
-  ul.players
-
+  h2 welcome to hell!
+  p.devicePrompt is this device going to display the dashboard, or will you be playing from here?
+  button.deviceDash dashboard
+  button.devicePlayer player
+  script(src='/javascripts/welcome.js')
 
